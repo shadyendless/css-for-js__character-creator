@@ -1,17 +1,15 @@
 .characterEditor {
     isolation: isolate;
-    padding-top: 128px;
+    padding-top: 64px;
     padding-bottom: 64px;
+    position: relative;
 }
 
 .maxWidthWrapper {
-    position: relative;
-    z-index: 2;
 }
 
 .header {
     padding-bottom: 64px;
-    width: 65%;
 }
 
 .title {
@@ -28,22 +26,56 @@
 }
 
 .characterWrapper {
-    position: fixed;
-    top: 35%;
-    left: 55%;
     z-index: 2;
 }
 
 .controlColumn {
-    width: 50%;
+    position: absolute;
+    bottom: 200px;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 100%;
 }
 
 .grayPane {
-    background-color: hsl(195deg 20% 86%);
-    z-index: 1;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 60%;
-    bottom: 0;
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .characterEditor {
+        padding-top: 128px;
+    }
+
+    .header {
+        width: 65%;
+    }
+
+    .characterWrapper {
+        left: 55%;
+        position: fixed;
+        top: 35%;
+    }
+
+    .controlColumn {
+        position: revert;
+        overflow-x: revert;
+        width: 50%;
+        white-space: revert;
+    }
+
+    .maxWidthWrapper {
+        position: relative;
+        z-index: 2;
+    }
+
+    .grayPane {
+        background-color: hsl(195deg 20% 86%);
+        display: revert;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 60%;
+        z-index: 1;
+    }
 }
